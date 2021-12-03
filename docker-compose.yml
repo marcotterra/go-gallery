@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  app:
+    restart: always
+    build:
+      context: .
+    ports:
+      - 8000:8000
+    depends_on:
+      - database
+    environment:
+      APP_NAME: api
+      APP_DATABASE_URL: mongodb://database/gallery
+
+  database:
+    image: mongo:5
+    restart: always
+    ports:
+      - 27017:27017
