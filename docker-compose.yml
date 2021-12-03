@@ -1,4 +1,4 @@
-version: "3"
+version: '3.8'
 services:
   app:
     restart: always
@@ -6,17 +6,14 @@ services:
       context: .
     ports:
       - 8000:8000
-    environment:
-      - APP_NAME=api
-      - APP_DATABASE_URL=mongodb://root:root@database:27017/
     depends_on:
       - database
+    environment:
+      APP_NAME: api
+      APP_DATABASE_URL: mongodb://database/gallery
 
   database:
     image: mongo:5
     restart: always
-    expose:
+    ports:
       - 27017:27017
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: root
