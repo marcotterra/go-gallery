@@ -1,4 +1,4 @@
-module rest-api
+module go-gallery
 
 go 1.17
 

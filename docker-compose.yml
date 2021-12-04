@@ -2,8 +2,11 @@ version: '3.8'
 services:
   app:
     restart: always
+    command: air
     build:
-      context: .
+      dockerfile: conf/dev/Dockerfile
+    volumes:
+      - .:/usr/app
     ports:
       - 8000:8000
     depends_on:

@@ -14,7 +14,7 @@ RUN go mod download
 COPY . .
 
 # Build our application.
-RUN CGO_ENABLED=0 GOOS=linux go build -o go-gellery-api
+RUN CGO_ENABLED=0 GOOS=linux go build -o gallery-api
 
 # Use 'scratch' image for super-mini build.
 FROM scratch AS prod
@@ -23,8 +23,8 @@ FROM scratch AS prod
 WORKDIR /usr/app
 
 # Copy our compiled executable from the last stage.
-COPY --from=builder /usr/app/go-gellery-api .
+COPY --from=builder /usr/app/gallery-api .
 
 # Run application and expose port 8080.
 EXPOSE 8080
-CMD ["./go-gellery-api"]
+CMD ["./gallery-api"]
