@@ -4,6 +4,7 @@
 *.dll
 *.so
 *.dylib
+tmp
 
 # Test binary, built with `go test -c`
 *.test
@@ -19,4 +20,4 @@ Thumbs.db
 # vendor/
 
 # builded package file
-rest-api
+go-gallery
