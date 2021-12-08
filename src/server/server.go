@@ -19,6 +19,12 @@ func NewServer(fHandler ports.FolderHandler) *Server {
 
 func (s *Server) Initialize() {
 	app := fiber.New()
+	app.Get("/", func(c *fiber.Ctx) error {
+		return c.JSON(&fiber.Map{
+			"hello": "world",
+		})
+	})
+
 	v1 := app.Group("/v1")
 
 	folderRoutes := v1.Group("/user")
